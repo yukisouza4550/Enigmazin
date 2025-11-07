@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enigmazin dboa</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="script" href="base.js">
+</head>
+<body>
+  <main class="container">
+    <h1>Fase 1</h1>
+    <p class="clue">
+      Pronto para os engimas?
+    </p>
+    <input type="text" id="answer" placeholder="Digite sua resposta...">
+    <button id="submit">Enviar</button>
+    <p class="feedback" id="feedback"></p>
+    <p>As respostas não contem acentos nem espaços</p>
+  </main>
+</body>
+<script>
+const answerInput = document.getElementById("answer");
+const submitBtn = document.getElementById("submit");
+const feedback = document.getElementById("feedback");
+
+function normalize(str) {
+  return str.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().trim();
+}
+
+submitBtn.addEventListener("click", () => {
+  const answer = normalize(answerInput.value);
+  const correct = "sim";
+
+  if (answer === correct) {
+    feedback.textContent = "Correto! Indo para a próxima fase...";
+    feedback.className = "feedback ok";
+
+    setTimeout(() => {
+      window.location.href = "base2.html";
+    }, 1200);
+  } else {
+    feedback.textContent = "Errado! Tente novamente.";
+    feedback.className = "feedback no";
+  }
+});
+
+</script>
+</html>
