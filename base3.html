@@ -9,10 +9,11 @@
 </head>
 <body>
   <main class="container">
-    <h1>Fase 1</h1>
+    <h1>Fase 3</h1>
     <p class="clue">
-      em andamento...
+      ...
     </p>
+    <video src="video.mp4" controls></video>
     <input type="text" id="answer" placeholder="Digite sua resposta...">
     <button id="submit">Enviar</button>
     <p class="feedback" id="feedback"></p>
@@ -31,7 +32,7 @@ function normalize(str) {
 
 submitBtn.addEventListener("click", () => {
   const answer = normalize(answerInput.value);
-  const correct = "";
+  const correct = "entaovamos";
 
   if (answer === correct) {
     feedback.textContent = "Correto! Indo para a próxima fase...";
